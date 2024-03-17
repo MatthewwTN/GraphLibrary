@@ -147,7 +147,7 @@ describe("Graph Library Tests", () => {
 
     const result = graph.Kruskal();
     expect(result).toEqual({
-      tree: [
+      MST: [
         { start: "C", end: "A", weight: 1 },
         { start: "A", end: "B", weight: 3 },
         { start: "C", end: "F", weight: 4 },
@@ -183,7 +183,7 @@ describe("Graph Library Tests", () => {
 
     const result = graph.Prims("A");
     expect(result).toEqual({
-      tree: [
+      MST: [
         {
           start: "A",
           end: "J",
@@ -238,7 +238,7 @@ describe("Graph Library Tests", () => {
 
     const result = graph.Prims("A");
     expect(result).toEqual({
-      tree: [
+      MST: [
         { start: "A", end: "C", weight: 1 },
         { start: "C", end: "D", weight: 1 },
         { start: "A", end: "J", weight: 2 },

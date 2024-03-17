@@ -86,7 +86,7 @@ class Graph implements GraphType {
    * @param vertex1
    * @param vertex2
    * @param weight
-   * @returns
+   * @returns void - or console.log if the vertices don't exist
    */
   addEdge(vertex1: string, vertex2: string, weight = 0, undirected?: boolean) {
     if (vertex1 === vertex2)
@@ -143,6 +143,7 @@ class Graph implements GraphType {
    * O((V+E) * log(V)) - Time Complexity
    * O(V) - Space Complexity
    * @param startVertex
+   *
    */
   Dijkstra(startVertex: string, endVertex?: string) {
     // Comparison function for the priority queue, to sort by priority
@@ -189,10 +190,11 @@ class Graph implements GraphType {
     return distance;
   }
 
-  /*
+  /**
    * Kruskals Algorithm for finding the minimum spanning tree
    * O(E * log(E)) - Time Complexity - Looping through all edges O(E), inserting and popping from the priority queue (log E)
    * O(E) - Space Complexity
+   * @returns {MST: { start: string; end: string; weight: number }[], weight: number}
    */
   Kruskal() {
     const comparison = (value: {
@@ -238,13 +240,15 @@ class Graph implements GraphType {
       return acc;
     }, 0);
 
-    return { tree: minimumSpanningTree, weight: totalWeight };
+    return { MST: minimumSpanningTree, weight: totalWeight };
   }
 
-  /*
-   *
-   *
-   *
+  /**
+   * Prims Algorithm for finding the minimum spanning tree
+   * O(E + V * log(E)) - Time Complexity - Looping through all edges O(E + V) and Vertices, inserting and popping from the priority queue (log E)
+   * O(E + V) - Space Complexity
+   * @param startVertex
+   * @returns {MST: { start: string; end: string; weight: number }[], minimumWeight: number}
    */
   Prims(startVertex: string) {
     const comparison = (value: {
@@ -269,12 +273,18 @@ class Graph implements GraphType {
 
     while (heap.size()) {
       let { start, end, weight } = heap.pop();
+      // Pop the smallest edge from the heap, that is connected to the current spanning tree
 
       if (!visited[end]) {
+        // if the end vertex hasn't been visited, we add it to the minimum spanning tree
         minimumSpanningTree.push({ start, end: end, weight });
         visited[end] = true;
+        // Then mark it as visited
         this.adjacencyList[end].map((neighbor) => {
+          // Go through the neighbors of the end vertex, and add them to the heap
+          // This will allow us to find the smallest edge connected to the current spanning tree
           if (!visited[neighbor.vertex]) {
+            // if the neighbor hasn't been visited, add it to the heap
             heap.push({
               start: end,
               end: neighbor.vertex,
@@ -293,7 +303,7 @@ class Graph implements GraphType {
 
     minimumSpanningTree.shift(); // remove the first element, as it is the start vertex
 
-    return { tree: minimumSpanningTree, minimumWeight: minimumWeight };
+    return { MST: minimumSpanningTree, minimumWeight: minimumWeight };
   }
 }
 
