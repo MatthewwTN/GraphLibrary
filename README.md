@@ -23,21 +23,33 @@ Rather than using the graph library in a regular .js file. I wrote the tests in 
 10 Tests can be ran on the graph library, and the .test.ts file can be edited further for the sake of testing. 
 These tests show the functionality of the MST functions, as well as BFS and DFS, Dijkstra as well.
 
+* GraphLibTest.test.ts
+* Is a file that uses jests testing framework on the GraphLibrary Class that is implemented in GraphLibrary.ts
+* You will run this file, in doing so the tests will appear that check the functionality of the GraphLibrary
+
 ## Requirements	
 1. Desktop, or Laptop Device
 2. Node Version 16.0.0 or Later 
 3. Terminal / Visual Studio Code Editor Terminal
    
 ## User Manual
-To Run the project, download the source folder from the repository, and place it in any given directory of your choosing. Navigate to the directory where the source folder is, and cd into the source code folder.
+
+Before running you will need to install a few things: 
 
 > [!IMPORTANT]
-> 
-1. Double check that you have TypeScript, ts-node, and Jest downloaded. (To run the .test file you will need Jest downloaded globally, so use the -g accordingly which can be seen below.
-2. npm install -g typescript
-3. npm install -g ts-node
-4. npm install --save-dev ts-jest @types/jest
-5. npm i -g jest
+> Double check that you have TypeScript and Jest downloaded. (To run the .test.ts file you will need Jest downloaded globally, so use the -g accordingly which can be seen below.)
+> Open a Terminal, within the source code directory on your computer - Run the following commands.
+
+1. npm install -g typescript
+3. npm install --save-dev ts-jest @types/jest
+4. npm i -g jest
+
+To Run the project, download the source folder from the repository, and place it in any given directory of your choosing. Navigate to the directory where the source folder is, and cd into the source code folder.
+Once Jest is downloaded, to run the test file, simply run: 
+
+* jest --watch 
+
+This will run the test suite and you will be able to see that all tests pass with the algorithms that are used.
 
 
 
