@@ -6,11 +6,11 @@ A Graph Library Implementing Multiple Algorithms and Graph Capabalities
 
 This library contains Algorithms such as: 
 
-Prims MST Algorithm 
-Kruskals MST Algorithm 
-Depth First Search
-Breadth First Search 
-Dijkstras Algorithm 
+1. Prims MST Algorithm
+2. Kruskals MST Algorithm
+3. Depth First Search
+4. Breadth First Search
+5. Dijkstras Algorithm 
 
 Along with this - You can Add Vertices and Edges between the Vertices in an Adjacency List Format. 
 TypeScript was used for this project to keep functions and algorithms in the graph strongly typed, preventing any mistakes with inputs.
