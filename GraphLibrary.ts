@@ -305,6 +305,51 @@ class Graph implements GraphType {
 
     return { MST: minimumSpanningTree, minimumWeight: minimumWeight };
   }
+
+  /**
+   * FindPath - Find the path from the start vertex to the end vertex
+   * O(V+E) - Time Complexity
+   * O(V) - Space Complexity
+   * @param startVertex
+   * @param endVertex
+   * @returns {path: string[], distance: number}
+   */
+
+  FindPath(
+    startVertex: string,
+    endVertex: string,
+    path: string[],
+    visited: { [key: string]: boolean }
+  ) {
+    // If the start vertex is the end vertex, we have found the path
+    if (startVertex === endVertex) {
+      path.push(startVertex);
+      visited[startVertex] = true;
+      return true;
+    }
+
+    visited[startVertex] = true;
+    // Mark the start vertex as visited
+
+    for (let neighbor of this.adjacencyList[startVertex]) {
+      // For each neighbor, if it hasn't been visited, recursively call FindPath
+      // Similar to a DFS, but we are looking for a specific vertex
+      if (!visited[neighbor.vertex]) {
+        let res = this.FindPath(neighbor.vertex, endVertex, path, visited);
+        if (res) {
+          // If the path is found, push the start vertex to the path and return true
+          path.push(startVertex);
+          return true;
+        }
+      }
+    }
+
+    // If no path is found, remove the vertex from the path and mark it as unvisited
+    // Utilizing backtracking to find the path
+    path.pop();
+    visited[startVertex] = false;
+    return false;
+  }
 }
 
 export default Graph;

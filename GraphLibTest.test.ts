@@ -249,4 +249,33 @@ describe("Graph Library Tests", () => {
       minimumWeight: 16,
     });
   });
+
+  it("Can find a path between two vertices with a displayable path", () => {
+    graph.addVertex("A");
+    graph.addVertex("B");
+    graph.addVertex("C");
+    graph.addVertex("D");
+    graph.addVertex("E");
+    graph.addVertex("F");
+    graph.addVertex("J");
+
+    graph.addEdge("A", "B", 3, true);
+    graph.addEdge("A", "C", 1, true);
+    graph.addEdge("A", "J", 2, true);
+    graph.addEdge("B", "E", 5, true);
+    graph.addEdge("C", "F", 4, true);
+    graph.addEdge("E", "D", 10, true);
+    graph.addEdge("D", "C", 1, true);
+
+    let path = [] as string[];
+    let visited = {} as { [key: string]: boolean };
+
+    graph.FindPath("A", "D", path, visited);
+
+    console.log(path.reverse());
+    // Console.log is used to display the path in the console
+
+    expect(path.reverse()).toContain("A");
+    expect(path.reverse()).toContain("D");
+  });
 });
