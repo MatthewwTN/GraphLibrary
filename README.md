@@ -10,7 +10,8 @@ This library contains Algorithms such as:
 2. Kruskals MST Algorithm
 3. Depth First Search
 4. Breadth First Search
-5. Dijkstras Algorithm 
+5. Dijkstras Algorithm
+6. Find a Path using Backtracking (DFS style)
 
 Along with this - You can Add Vertices and Edges between the Vertices in an Adjacency List Format. 
 TypeScript was used for this project to keep functions and algorithms in the graph strongly typed, preventing any mistakes with inputs.
