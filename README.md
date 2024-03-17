@@ -32,6 +32,7 @@ These tests show the functionality of the MST functions, as well as BFS and DFS,
 To Run the project, download the source folder from the repository, and place it in any given directory of your choosing. Navigate to the directory where the source folder is, and cd into the source code folder.
 
 > [!IMPORTANT]
+> 
 1. Double check that you have TypeScript, ts-node, and Jest downloaded. (To run the .test file you will need Jest downloaded globally, so use the -g accordingly which can be seen below.
 2. npm install -g typescript
 3. npm install -g ts-node
